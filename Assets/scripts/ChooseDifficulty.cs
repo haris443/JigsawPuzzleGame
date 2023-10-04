@@ -11,16 +11,21 @@ public class ChooseDifficulty : MonoBehaviour
     public static ChooseDifficulty instance;
     public GameObject levelPanel;
     public GameObject difficultyPanel;
+    public GameObject gameNameText;
+    public GameObject levelSelText;
     public static int num;
     public int unlockLevels;
     // Start is called before the first frame update
     void Start()
     {
-        unlockLevels = PlayerPrefs.GetInt("unlockImg", 0);
-        levelPanel.SetActive(true);
-        difficultyPanel.SetActive(false);
         instance = this;
         StartCoroutine(GeneratingBtns());
+        unlockLevels = PlayerPrefs.GetInt("unlockImg", 0);
+        levelPanel.SetActive(false);
+        levelSelText.SetActive(false);
+        gameNameText.SetActive(true);
+        difficultyPanel.SetActive(true);
+        
     }
 
     // Update is called once per frame
@@ -34,14 +39,18 @@ public class ChooseDifficulty : MonoBehaviour
         SoundManager.instance.playSound(0);
         SpriteDivider.totalPieces = num;
         levelPanel.SetActive(true);
+        levelSelText.SetActive(true);
         difficultyPanel.SetActive(false);
+        gameNameText.SetActive(false);
        // SceneManager.LoadScene("PuzzleGame");
     }
     public void displayDiffPanel()
     {
         SoundManager.instance.playSound(0);
         difficultyPanel.SetActive(true);
+        gameNameText.SetActive(true);
         levelPanel.SetActive(false);
+        levelSelText.SetActive(false);
     }
     public void SetTimer(int seconds)
     {
@@ -63,6 +72,7 @@ public class ChooseDifficulty : MonoBehaviour
             if (i<= unlockLevels)
             {
                 btn.transform.GetChild(1).gameObject.SetActive(false);
+                btn.transform.GetChild(0).gameObject.SetActive(true);
                 btn.transform.GetComponent<Button>().interactable = true; ;
                 //Debug.Log(btn.name);
 

@@ -59,11 +59,11 @@ public class GameManger : MonoBehaviour
         if (temp >= ChooseDifficulty.num && temp < DataRetriever.retrievedNumber)
         {
             temp += 2;
-            Debug.Log(temp + " temp");
+            //Debug.Log(temp + " temp");
             ImageLoader.startInd = ImageLoader.EndInd;
             ImageLoader.EndInd += 2;
             ImageLoader.Instance.LoaMoreImages();
-            Debug.Log("we load img froms start ");
+           // Debug.Log("we load img froms start ");
         }
     }
 
@@ -248,7 +248,7 @@ public class GameManger : MonoBehaviour
         SoundManager.instance.playSound(0);
         //SoundManager.instance.soundPlayers.buttonAudioSource.PlayOneShot(SoundManager.instance.gameSounds.ButtonSounds[0]);
 
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.phantomplay.horror.story");
+        Application.OpenURL("https://play.google.com/store/apps/details?id=com.phatomplay.JigsawPuzzleGame");
 
     }
 
