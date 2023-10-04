@@ -17,8 +17,14 @@ public struct LoadingScreenUI
 public class ScreenLoadingScript : MonoBehaviour
 {
     public static ScreenLoadingScript instance;
-
     public LoadingScreenUI loadingScreenUI;
+
+    public Text textToBlink;
+    public float blinkSpeed = 1.0f;
+    public float minAlpha = 0.2f;
+
+    private float timer = 0f;
+    private bool isBlinking = true;
 
     private void Awake()
     {
@@ -33,6 +39,7 @@ public class ScreenLoadingScript : MonoBehaviour
 
     private void Update()
     {
+        BlinkingText();
        // loadingScreenUI.loadingBarPercentage.text = (int)(loadingScreenUI.loadingBar.fillAmount*100) + "%";
     }
 
@@ -56,11 +63,20 @@ public class ScreenLoadingScript : MonoBehaviour
             //Debug.Log(sceneName);
             SceneManager.LoadScene(sceneName);
        }
-        /*
-        else
-        {
-            OrcBricks_UIManager.instance.GameStatesHandler(Enum.Parse<States>(sceneName));
-        }*/
+       
+    }
+
+    void BlinkingText()
+    {
+        timer += Time.deltaTime * blinkSpeed;
+
+        // Calculate the new alpha value based on a sine wave.
+        float alpha = minAlpha + Mathf.Abs(Mathf.Sin(timer)) * (1.0f - minAlpha);
+
+        // Update the text component's color with the new alpha value.
+        Color textColor = textToBlink.color;
+        textColor.a = alpha;
+        textToBlink.color = textColor;
     }
 
 }

@@ -130,12 +130,6 @@ public class UnityAds : MonoBehaviour, IUnityAdsInitializationListener, IUnityAd
         {
             PlayerPrefs.SetInt("adCompleted", 1);
             LoadUnityRewardedAd();
-        }
-
-        if (_adUnitId.Equals(unityInterstitialAdId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
-        {
-            PlayerPrefs.SetInt("adCompleted", 1);
-
             if (GameManger.instance.rewardType.Equals(RewardTypes.SlideHint))
             {
                 PlayerPrefs.SetInt("puzzleHint", 2);
@@ -146,6 +140,22 @@ public class UnityAds : MonoBehaviour, IUnityAdsInitializationListener, IUnityAd
                 PlayerPrefs.SetInt("questionMarkHint", 2);
 
             }
+        }
+
+        if (_adUnitId.Equals(unityInterstitialAdId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+        {
+            PlayerPrefs.SetInt("adCompleted", 1);
+
+           /* if (GameManger.instance.rewardType.Equals(RewardTypes.SlideHint))
+            {
+                PlayerPrefs.SetInt("puzzleHint", 2);
+
+            }
+            else if (GameManger.instance.rewardType.Equals(RewardTypes.QmHint))
+            {
+                PlayerPrefs.SetInt("questionMarkHint", 2);
+
+            }*/
 
 
             LoadUnityInterstitialAd();
