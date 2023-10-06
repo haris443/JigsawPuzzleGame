@@ -152,6 +152,8 @@ public class GameManger : MonoBehaviour
             hintRewardBtn.SetActive(true);
             hintBtn.SetActive(false);
         }
+        hintBtnText.text = PlayerPrefs.GetInt("puzzleHint", 2).ToString();
+       
     }
     void EnablingRewardedQM()
     {
@@ -166,6 +168,7 @@ public class GameManger : MonoBehaviour
             rewardQuestionMark.SetActive(true);
             questionMark.SetActive(false);
         }
+        questionMarkText.text = PlayerPrefs.GetInt("questionMarkHint", 2).ToString();
     }
     public void DisplayImageOnQM()
     {

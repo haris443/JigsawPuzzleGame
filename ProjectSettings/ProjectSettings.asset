@@ -259,8 +259,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Assets/user.keystore'
-  AndroidKeyaliasName: sdw
+  AndroidKeystoreName: '{inproject}: Assets/phantomplay.keystore'
+  AndroidKeyaliasName: phantomplay
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

@@ -70,7 +70,7 @@ public class TimerOfPuzzleGame : MonoBehaviour
             GameManger.instance.LosePanel.SetActive(true);
 
 
-            //AdsManager.Instance.ShowAd(AdScenes.LevelFailed.ToString());
+            AdsManager.Instance.ShowAd(AdScenes.LevelFailed.ToString());
             
             
             // SceneManager.LoadScene("PuzzleGame");
